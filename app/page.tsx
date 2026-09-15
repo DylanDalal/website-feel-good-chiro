@@ -73,7 +73,7 @@ export default function Home() {
           <Image src="/images/feel-good-logo.png" alt="Feel Good Chiropractic" width={220} height={100} priority />
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#care">Care</a><a href="#doctor">Dr. Frankie</a><a href="#visit">Your visit</a><a href="#contact">Contact</a>
+          <a href="#care">Care</a><a href="#doctor">Dr. Frankie</a><a href="/articles">Articles</a><a href="#visit">Your visit</a><a href="#contact">Contact</a>
         </nav>
         <a className="header-phone" href="tel:+18139622489"><Phone size={18} /> 813-962-2489</a>
       </header>
@@ -191,7 +191,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-main"><Image src="/images/feel-good-logo.png" alt="Feel Good Chiropractic" width={210} height={96} /><p>Evidence-based, patient-centered chiropractic care for Greater Northdale, Carrollwood, Lutz, and surrounding Tampa communities.</p>
-          <div className="footer-links"><a href="mailto:frankie@feelgoodchiro.net">frankie@feelgoodchiro.net</a><a href="https://www.facebook.com/feelgoodchiro/" target="_blank" rel="noreferrer">Facebook</a><a href="https://www.designsforhealth.com/u/frankieamarillasdc" target="_blank" rel="noreferrer">Vitamin orders</a></div>
+          <div className="footer-links"><a href="mailto:frankie@feelgoodchiro.net">frankie@feelgoodchiro.net</a><a href="/articles">Articles & resources</a><a href="https://www.facebook.com/feelgoodchiro/" target="_blank" rel="noreferrer">Facebook</a><a href="https://www.designsforhealth.com/u/frankieamarillasdc" target="_blank" rel="noreferrer">Vitamin orders</a></div>
         </div>
         <div className="footer-bottom"><span>© 2026 Feel Good Chiropractic</span><span>Be well… Live well.</span></div>
       </footer>
