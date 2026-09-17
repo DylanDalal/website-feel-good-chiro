@@ -1,35 +1,96 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Manrope } from 'next/font/google';
+import { DM_Sans, Outfit } from 'next/font/google';
+import { Header, Footer } from '@/components/site-shell';
+import { openingHours, site } from '@/lib/site';
 import './globals.css';
-
-const body = DM_Sans({ variable: '--font-body', subsets: ['latin'] });
-const heading = Manrope({ variable: '--font-display', subsets: ['latin'] });
-
+const body = DM_Sans({
+  variable: '--font-body',
+  subsets: ['latin'],
+  display: 'swap',
+});
+const heading = Outfit({
+  variable: '--font-display',
+  subsets: ['latin'],
+  display: 'swap',
+});
 export const metadata: Metadata = {
-  metadataBase: new URL('https://feel-good-chiropractic-tampa.dylanmax822506.chatgpt.site'),
+  metadataBase: new URL(site.url),
   title: {
-    default: 'Feel Good Chiropractic | Chiropractor in Tampa, FL',
+    default: 'Tampa Chiropractor | Feel Good Chiropractic',
     template: '%s | Feel Good Chiropractic',
   },
-  description: 'Evidence-based chiropractic care, Cox spinal decompression, acupuncture, sports rehabilitation, and soft tissue therapy in Tampa with Dr. Frankie Amarillas.',
-  keywords: ['Tampa chiropractor', 'Carrollwood chiropractor', 'Northdale chiropractic care', 'Cox spinal decompression Tampa', 'acupuncture Tampa', 'sports chiropractor Tampa'],
+  description:
+    'Get back to feeling good with Dr. Frankie Amarillas. Personalized chiropractic care, acupuncture, Cox decompression, and sports rehabilitation in Tampa.',
   icons: { icon: '/favicon.png', apple: '/favicon.png' },
-  alternates: { canonical: '/' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Feel Good Chiropractic | Tampa, Florida',
-    description: 'Patient-centered chiropractic care, spinal decompression, acupuncture, and rehabilitation with no long-term contracts.',
-    url: '/',
-    siteName: 'Feel Good Chiropractic',
+    siteName: site.name,
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: '/images/og-feel-good-chiropractic.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Dr. Frankie Amarillas with a patient at Feel Good Chiropractic in Tampa',
+      },
+    ],
   },
+  twitter: { card: 'summary_large_image' },
 };
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+const business = {
+  '@context': 'https://schema.org',
+  '@type': ['MedicalBusiness', 'Chiropractic'],
+  '@id': `${site.url}/#practice`,
+  name: site.name,
+  url: site.url,
+  telephone: '+1-813-962-2489',
+  email: site.email,
+  image: `${site.url}/images/og-feel-good-chiropractic.jpg`,
+  logo: `${site.url}/images/feel-good-logo.png`,
+  medicalSpecialty: 'Chiropractic',
+  employee: { '@id': `${site.url}/#dr-frankie` },
+  availableLanguage: ['English', 'Spanish'],
+  priceRange: '$$',
+  currenciesAccepted: 'USD',
+  hasMap: site.directions,
+  geo: { '@type': 'GeoCoordinates', ...site.geo },
+  openingHoursSpecification: openingHours,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address,
+    addressLocality: 'Tampa',
+    addressRegion: 'FL',
+    postalCode: '33624',
+    addressCountry: 'US',
+  },
+  areaServed: [
+    'Tampa',
+    'Carrollwood',
+    'Northdale',
+    'Citrus Park',
+    'Westchase',
+    'Lutz',
+  ],
+  sameAs: ['https://www.facebook.com/feelgoodchiro/'],
+};
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${body.variable} ${heading.variable}`}>{children}</body>
+      <body className={`${body.variable} ${heading.variable}`}>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <Header />
+        {children}
+        <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(business) }}
+        />
+      </body>
     </html>
   );
 }
