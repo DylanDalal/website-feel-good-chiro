@@ -4,3 +4,18 @@
 
 [build.environment]
   NODE_VERSION = "22.13.0"
+
+# Canonical host: consolidate www onto the bare domain with a permanent redirect
+# so the two never serve the same content. force = true is required, otherwise a
+# matching static file is served before the redirect is considered.
+[[redirects]]
+  from = "https://www.feelgoodchiro.net/*"
+  to = "https://feelgoodchiro.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.feelgoodchiro.net/*"
+  to = "https://feelgoodchiro.net/:splat"
+  status = 301
+  force = true

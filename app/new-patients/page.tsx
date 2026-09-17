@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Photo } from '@/components/photo';
 import { ArrowUpRight, FileText } from 'lucide-react';
 import { PageIntro } from '@/components/content';
 import { BookButton, FAQ, VisitCTA } from '@/components/site-shell';
@@ -74,14 +74,12 @@ export default function NewPatients() {
               <br />
               Room for questions.
             </h2>
-            <Image
-              unoptimized
+            <Photo
               className="visit-photo"
               src="/images/chiropractic-consultation.jpg"
               alt="A relaxed conversation between a clinician and patient"
               width={1200}
               height={800}
-              loading="lazy"
             />
           </div>
           <ol className="steps">

@@ -11,7 +11,8 @@
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
     "format": "oxfmt",
-    "build:static": "vinext build --prerender-all && node --experimental-strip-types scripts/build-netlify.mjs"
+    "build:static": "vinext build --prerender-all && node --experimental-strip-types scripts/build-netlify.mjs",
+    "images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "react": "19.2.6",

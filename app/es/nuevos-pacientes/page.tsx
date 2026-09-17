@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Photo } from '@/components/photo';
 import { ArrowUpRight } from 'lucide-react';
 import { PageIntro } from '@/components/content';
 import { BookButton, FAQ, VisitCTA } from '@/components/site-shell';
@@ -78,14 +78,12 @@ export default function NuevosPacientesEs() {
               <br />
               Espacio para preguntar.
             </h2>
-            <Image
-              unoptimized
+            <Photo
               className="visit-photo"
               src="/images/chiropractic-consultation.jpg"
               alt="Una conversación tranquila entre el quiropráctico y una paciente"
               width={1200}
               height={800}
-              loading="lazy"
             />
           </div>
           <ol className="steps">

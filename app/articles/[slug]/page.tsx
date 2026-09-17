@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Photo } from '@/components/photo';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -64,13 +64,7 @@ export default async function ArticleDetail({
           </p>
         </header>
         <figure className="article-feature container">
-          <Image
-            unoptimized
-            src={a.image}
-            alt={a.imageAlt}
-            width={1200}
-            height={800}
-          />
+          <Photo src={a.image} alt={a.imageAlt} width={1200} height={800} />
         </figure>
         <div className="container content-layout">
           <div className="prose">

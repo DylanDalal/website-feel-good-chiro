@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Photo } from './photo';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { BookButton } from './site-shell';
@@ -94,13 +94,11 @@ export function AppointmentAside({ lang = 'en' }: { lang?: Locale }) {
         {copy.expect} <ArrowUpRight size={16} />
       </Link>
       <div className="aside-doctor">
-        <Image
-          unoptimized
+        <Photo
           src="/images/dr-frankie.jpg"
           alt="Dr. Frankie Amarillas"
           width={235}
           height={313}
-          loading="lazy"
         />
         <div>
           <strong>Dr. Frankie Amarillas</strong>

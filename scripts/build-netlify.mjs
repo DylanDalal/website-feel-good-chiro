@@ -70,7 +70,8 @@ const urls = paths
           )
           .join('')
       : '';
-    const priority = path === '/' ? '1.0' : path.startsWith('/articles/') ? '0.6' : '0.8';
+    const priority =
+      path === '/' ? '1.0' : path.startsWith('/articles/') ? '0.6' : '0.8';
     return `  <url>\n    <loc>${abs(path)}</loc>${links}\n    <lastmod>${lastmod}</lastmod>\n    <priority>${priority}</priority>\n  </url>`;
   })
   .join('\n');
@@ -81,6 +82,17 @@ await writeFile(
 await writeFile(
   join(outDir, 'robots.txt'),
   `User-agent: *\nAllow: /\nDisallow: /docs/\nDisallow: /__debug\n\nSitemap: ${site.url}/sitemap.xml\n`,
+);
+
+// 3b. vinext's _headers only covers content-hashed /_next/static. Images and the
+//     favicon are un-hashed but effectively immutable between deploys, so give
+//     them a long TTL too (Lighthouse flags anything short as inefficient).
+const headers = await readFile(join(outDir, '_headers'), 'utf8').catch(
+  () => '',
+);
+await writeFile(
+  join(outDir, '_headers'),
+  `${headers.trimEnd()}\n\n/images/*\n  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400\n\n/favicon.png\n  Cache-Control: public, max-age=2592000\n`,
 );
 
 // 4. next.config.ts redirects become a Netlify _redirects file, and unmatched

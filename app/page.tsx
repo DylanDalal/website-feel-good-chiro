@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Photo } from '@/components/photo';
 import Link from 'next/link';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { BookButton, FAQ, VisitCTA } from '@/components/site-shell';
@@ -21,15 +21,13 @@ export default function Home() {
   return (
     <main id="main">
       <section className="home-hero" id="top">
-        <Image
-          unoptimized
+        <Photo
           className="sunset-backdrop"
           src="/images/pink-gulf-sunset.jpg"
           alt=""
           width={1920}
           height={1280}
-          fetchPriority="high"
-          loading="eager"
+          priority
         />
         <div className="container hero-grid">
           <div className="hero-copy">
@@ -55,19 +53,16 @@ export default function Home() {
           </div>
           <div className="hero-portraits">
             <div className="portrait-main pink-photo">
-              <Image
-                unoptimized
+              <Photo
                 src="/images/chiropractic-consultation.jpg"
                 alt="A chiropractor listening to a patient during a consultation"
                 width={1200}
                 height={800}
-                fetchPriority="high"
-                loading="eager"
+                priority
               />
             </div>
             <div className="portrait-small pink-photo">
-              <Image
-                unoptimized
+              <Photo
                 src="/images/shoulder-mobility.jpg"
                 alt="Hands-on shoulder movement assessment"
                 width={1200}
@@ -142,13 +137,11 @@ export default function Home() {
       <section className="home-doctor section" id="doctor">
         <div className="container home-doctor-grid">
           <figure className="real-portrait">
-            <Image
-              unoptimized
+            <Photo
               src="/images/dr-frankie.jpg"
               alt="Dr. Frankie Amarillas, Tampa chiropractor"
               width={235}
               height={313}
-              loading="lazy"
             />
             <figcaption>
               Dr. Frankie Amarillas
@@ -180,13 +173,11 @@ export default function Home() {
         </div>
       </section>
       <section className="life-section">
-        <Image
-          unoptimized
+        <Photo
           src="/images/active-tampa-couple.jpg"
           alt="Two adults enjoying a sunny walk together"
           width={1200}
           height={800}
-          loading="lazy"
         />
         <div className="container">
           <p className="eyebrow">Your kind of feeling good</p>

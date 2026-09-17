@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Photo } from '@/components/photo';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -97,14 +97,12 @@ export default async function CareDetailEs({
             <BookButton>Encontremos su siguiente paso</BookButton>
           </div>
           <figure className="detail-photo">
-            <Image
-              unoptimized
+            <Photo
               src={page.image}
               alt={page.imageAlt}
               width={1200}
               height={800}
-              fetchPriority="high"
-              loading="eager"
+              priority
             />
           </figure>
         </div>

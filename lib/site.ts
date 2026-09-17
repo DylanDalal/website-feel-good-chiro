@@ -1,6 +1,19 @@
+// Netlify injects URL (the site's primary domain) and DEPLOY_PRIME_URL (the
+// branch/preview domain) at build time. Resolving the canonical origin from them
+// keeps canonical, hreflang, og:url, sitemap and schema @id self-referencing on
+// whichever host actually serves the build, instead of always claiming
+// feelgoodchiro.net. Guarded so the client bundle never touches process.
+const env: Record<string, string | undefined> =
+  typeof process === 'undefined' ? {} : (process.env ?? {});
+const origin = (
+  env.SITE_URL ||
+  env.DEPLOY_PRIME_URL ||
+  env.URL ||
+  'https://feelgoodchiro.net'
+).replace(/\/+$/, '');
 export const site = {
   name: 'Feel Good Chiropractic',
-  url: 'https://feelgoodchiro.net',
+  url: origin,
   booking: 'https://practice.chirotouch.com/portal/FeelGoodChiropractic_2',
   phone: '813-962-2489',
   tel: 'tel:+18139622489',

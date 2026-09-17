@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Photo } from '@/components/photo';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { BookButton, VisitCTA } from '@/components/site-shell';
@@ -53,8 +53,7 @@ export default function About() {
             <BookButton>Come meet Dr. Frankie</BookButton>
           </div>
           <figure className="real-portrait">
-            <Image
-              unoptimized
+            <Photo
               src="/images/dr-frankie.jpg"
               alt="Dr. Frankie Amarillas, Doctor of Chiropractic"
               width={235}

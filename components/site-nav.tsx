@@ -69,8 +69,12 @@ export function SiteNav() {
       measure();
       onScroll();
     };
-    measure();
-    onScroll();
+    // Deferred: measuring on mount forces a layout right after hydration, which
+    // Lighthouse flags as a forced reflow on the critical path.
+    const canIdle = typeof window.requestIdleCallback === 'function';
+    const idle = canIdle
+      ? window.requestIdleCallback(onResize)
+      : window.setTimeout(onResize, 200);
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
     window.addEventListener('load', onResize);
@@ -79,6 +83,8 @@ export function SiteNav() {
       window.removeEventListener('resize', onResize);
       window.removeEventListener('load', onResize);
       cancelAnimationFrame(frame);
+      if (canIdle) window.cancelIdleCallback(idle);
+      else window.clearTimeout(idle);
       root.classList.remove('is-scrolled');
     };
   }, [onHome, links]);
