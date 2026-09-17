@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { BookButton } from './site-shell';
 import type { CarePage } from '@/lib/care';
+import type { Locale } from '@/lib/i18n';
 
 export function PageIntro({
   eyebrow,
@@ -26,15 +27,34 @@ export function PageIntro({
     </section>
   );
 }
-export function CareLinks({ pages }: { pages: CarePage[] }) {
+export function CareLinks({
+  pages,
+  base = '',
+  lang = 'en',
+}: {
+  pages: CarePage[];
+  base?: string;
+  lang?: Locale;
+}) {
   return (
     <div className="care-link-grid">
       {pages.map((page, i) => (
-        <Link href={`/${page.slug}`} className="care-link" key={page.slug}>
+        <Link
+          href={`${base}/${page.slug}`}
+          className="care-link"
+          key={page.slug}
+        >
           <span className="care-number">{String(i + 1).padStart(2, '0')}</span>
           <h3>{page.label}</h3>
           <p>{page.description.replace(/ in Tampa(, FL)?/g, '')}</p>
-          <span className="card-arrow" aria-label={`Learn about ${page.label}`}>
+          <span
+            className="card-arrow"
+            aria-label={
+              lang === 'es'
+                ? `Conocer más sobre ${page.label}`
+                : `Learn about ${page.label}`
+            }
+          >
             <ArrowUpRight size={22} />
           </span>
         </Link>
@@ -42,18 +62,36 @@ export function CareLinks({ pages }: { pages: CarePage[] }) {
     </div>
   );
 }
-export function AppointmentAside() {
+const asideCopy = {
+  en: {
+    eyebrow: 'Your next step',
+    title: 'Let’s talk about you.',
+    text: 'Tell us what’s been bothering you. We’ll help you understand where to start.',
+    book: 'Book a visit',
+    expect: 'What to expect',
+    expectHref: '/new-patients',
+    role: 'Chiropractor · Tampa, FL',
+  },
+  es: {
+    eyebrow: 'Su siguiente paso',
+    title: 'Hablemos de usted.',
+    text: 'Cuéntenos qué le ha estado molestando. Le ayudaremos a entender por dónde empezar.',
+    book: 'Reservar una cita',
+    expect: 'Qué esperar',
+    expectHref: '/es/nuevos-pacientes',
+    role: 'Quiropráctico · Tampa, FL',
+  },
+};
+export function AppointmentAside({ lang = 'en' }: { lang?: Locale }) {
+  const copy = asideCopy[lang];
   return (
     <aside className="appointment-aside">
-      <p className="eyebrow">Your next step</p>
-      <h2>Let’s talk about you.</h2>
-      <p>
-        Tell us what’s been bothering you. We’ll help you understand where to
-        start.
-      </p>
-      <BookButton>Book a visit</BookButton>
-      <Link className="text-link" href="/new-patients">
-        What to expect <ArrowUpRight size={16} />
+      <p className="eyebrow">{copy.eyebrow}</p>
+      <h2>{copy.title}</h2>
+      <p>{copy.text}</p>
+      <BookButton>{copy.book}</BookButton>
+      <Link className="text-link" href={copy.expectHref}>
+        {copy.expect} <ArrowUpRight size={16} />
       </Link>
       <div className="aside-doctor">
         <Image
@@ -66,7 +104,7 @@ export function AppointmentAside() {
         />
         <div>
           <strong>Dr. Frankie Amarillas</strong>
-          <span>Chiropractor · Tampa, FL</span>
+          <span>{copy.role}</span>
           <span>Se habla Español</span>
         </div>
       </div>

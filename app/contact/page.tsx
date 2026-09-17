@@ -3,11 +3,15 @@ import { ArrowUpRight, MapPin, Phone, Mail } from 'lucide-react';
 import { PageIntro } from '@/components/content';
 import { BookButton } from '@/components/site-shell';
 import { site } from '@/lib/site';
+import { languageAlternates } from '@/lib/i18n';
 export const metadata = {
   title: 'Contact & Directions | Chiropractor in North Tampa',
   description:
-    'Visit Feel Good Chiropractic at 5121 Ehrlich Road, Suite 109, Tampa, FL 33624. Call 813-962-2489 for appointments, office hours, and directions.',
-  alternates: { canonical: '/contact' },
+    'Visit Feel Good Chiropractic at 5121 Ehrlich Road, Suite 109-A, Tampa, FL 33624. Call 813-962-2489 for appointments, office hours, and directions.',
+  alternates: {
+    canonical: '/contact',
+    languages: languageAlternates('/contact'),
+  },
 };
 export function Hours() {
   return (
@@ -116,6 +120,17 @@ export default function Contact() {
             >
               Open directions in Google Maps <ArrowUpRight size={18} />
             </a>
+          </div>
+        </div>
+        <div className="container">
+          <div className="map-frame">
+            <iframe
+              title="Map to Feel Good Chiropractic, 5121 Ehrlich Road, Suite 109-A, Tampa, FL 33624"
+              src="https://www.google.com/maps?q=Feel+Good+Chiropractic,+5121+Ehrlich+Rd+Suite+109-A,+Tampa,+FL+33624&z=15&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>

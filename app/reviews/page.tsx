@@ -1,7 +1,7 @@
 import { PageIntro } from '@/components/content';
 import { VisitCTA } from '@/components/site-shell';
 export const metadata = {
-  title: 'Patient Perspectives',
+  title: 'Patient Reviews | Tampa Chiropractor',
   description:
     'Patient perspectives on the personal approach at Feel Good Chiropractic in Tampa with Dr. Frankie Amarillas.',
   alternates: { canonical: '/reviews' },

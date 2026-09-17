@@ -3,11 +3,15 @@ import { ArrowUpRight, FileText } from 'lucide-react';
 import { PageIntro } from '@/components/content';
 import { BookButton, FAQ, VisitCTA } from '@/components/site-shell';
 import { site } from '@/lib/site';
+import { languageAlternates } from '@/lib/i18n';
 export const metadata = {
-  title: 'New Patients, Forms & First Visit',
+  title: 'New Patients & First Visit | Tampa Chiropractor',
   description:
     'Plan your first visit to Feel Good Chiropractic in Tampa. Find booking, patient forms, what to bring, insurance questions, and what to expect.',
-  alternates: { canonical: '/new-patients' },
+  alternates: {
+    canonical: '/new-patients',
+    languages: languageAlternates('/new-patients'),
+  },
 };
 export const patientFAQs = [
   {

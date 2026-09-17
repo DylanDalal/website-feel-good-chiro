@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { articles, findArticle } from '../data';
 import { AppointmentAside } from '@/components/content';
 import { site } from '@/lib/site';
+import { ogImage } from '@/lib/seo';
 export function generateStaticParams() {
   return articles.map(({ slug }) => ({ slug }));
 }
@@ -25,6 +26,7 @@ export async function generateMetadata({
           description: a.description,
           type: 'article',
           url: `/articles/${a.slug}`,
+          images: [ogImage],
         },
       }
     : { title: 'Article not found', robots: { index: false } };

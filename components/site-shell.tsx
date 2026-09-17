@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight, Phone, MapPin } from 'lucide-react';
 import { site } from '@/lib/site';
+import { SiteNav, HeaderActions } from '@/components/site-nav';
 
 export function Brand() {
   return (
@@ -24,40 +25,11 @@ export function BookButton({
 }
 
 export function Header() {
-  const links = [
-    ['Our care', '/care'],
-    ['Dr. Frankie', '/about-us'],
-    ['Your first visit', '/new-patients'],
-    ['Resources', '/articles'],
-    ['Visit us', '/contact'],
-  ];
   return (
     <header className="site-header">
       <Brand />
-      <nav className="desktop-nav" aria-label="Main navigation">
-        {links.map(([label, url]) => (
-          <Link href={url} key={url}>
-            {label}
-          </Link>
-        ))}
-      </nav>
-      <div className="header-actions">
-        <BookButton>Book a visit</BookButton>
-        <details className="mobile-menu">
-          <summary>
-            Menu <span aria-hidden="true">＋</span>
-          </summary>
-          <nav aria-label="Mobile navigation">
-            {links.map(([label, url]) => (
-              <a href={url} key={url}>
-                {label}
-                <ArrowUpRight size={16} />
-              </a>
-            ))}
-            <a href={site.tel}>Call {site.phone}</a>
-          </nav>
-        </details>
-      </div>
+      <SiteNav />
+      <HeaderActions />
     </header>
   );
 }
@@ -132,21 +104,38 @@ export function Footer() {
   );
 }
 
-export function VisitCTA() {
+const ctaCopy = {
+  en: {
+    eyebrow: 'Ready when you are',
+    lineOne: 'More comfortable days.',
+    lineTwo: 'More of what you love.',
+    text: 'Let’s talk about getting you there.',
+    book: 'Book an appointment',
+  },
+  es: {
+    eyebrow: 'Cuando usted esté listo',
+    lineOne: 'Días más cómodos.',
+    lineTwo: 'Más de lo que le gusta.',
+    text: 'Hablemos de cómo llegar ahí.',
+    book: 'Reservar una cita',
+  },
+};
+export function VisitCTA({ lang = 'en' }: { lang?: 'en' | 'es' }) {
+  const copy = ctaCopy[lang];
   return (
-    <section className="visit-cta">
+    <section className="visit-cta" id="visit">
       <div className="container cta-inner">
         <div>
-          <p className="eyebrow">Ready when you are</p>
+          <p className="eyebrow">{copy.eyebrow}</p>
           <h2>
-            More comfortable days.
+            {copy.lineOne}
             <br />
-            More of what you love.
+            {copy.lineTwo}
           </h2>
-          <p>Let’s talk about getting you there.</p>
+          <p>{copy.text}</p>
         </div>
         <div className="cta-actions">
-          <BookButton />
+          <BookButton>{copy.book}</BookButton>
           <a className="phone-link" href={site.tel}>
             {site.phone} <ArrowUpRight size={22} />
           </a>
@@ -171,6 +160,20 @@ export function FAQ({
 }) {
   return (
     <div className="faq-list">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: items.map((item) => ({
+              '@type': 'Question',
+              name: item.question,
+              acceptedAnswer: { '@type': 'Answer', text: item.answer },
+            })),
+          }),
+        }}
+      />
       {items.map((item) => (
         <details key={item.question}>
           <summary>

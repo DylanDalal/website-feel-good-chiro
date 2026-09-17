@@ -4,7 +4,7 @@ import { PageIntro } from '@/components/content';
 import { VisitCTA } from '@/components/site-shell';
 import { articles } from './data';
 export const metadata = {
-  title: 'Chiropractic Articles & Movement Resources',
+  title: 'Chiropractic Articles & Resources | Tampa',
   description:
     'Practical guides to back pain, neck pain, sports injuries, car accidents, and workplace concerns from Feel Good Chiropractic in Tampa.',
   alternates: { canonical: '/articles' },

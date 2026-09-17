@@ -3,11 +3,12 @@ import { ArrowUpRight } from 'lucide-react';
 import { PageIntro, CareLinks } from '@/components/content';
 import { VisitCTA } from '@/components/site-shell';
 import { services, conditions } from '@/lib/care';
+import { languageAlternates } from '@/lib/i18n';
 export const metadata = {
   title: 'Chiropractic Services & Pain Care in Tampa',
   description:
     'Explore chiropractic care, acupuncture, Cox decompression, sports rehabilitation, and care for back, neck, joint, and movement concerns in Tampa.',
-  alternates: { canonical: '/care' },
+  alternates: { canonical: '/care', languages: languageAlternates('/care') },
 };
 export default function Care() {
   return (

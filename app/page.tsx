@@ -5,13 +5,16 @@ import { BookButton, FAQ, VisitCTA } from '@/components/site-shell';
 import { services, conditions } from '@/lib/care';
 import { articles } from './articles/data';
 import { patientFAQs } from './new-patients/page';
+import { ogImage } from '@/lib/seo';
+import { languageAlternates } from '@/lib/i18n';
 export const metadata = {
-  alternates: { canonical: '/' },
+  alternates: { canonical: '/', languages: languageAlternates('/') },
   openGraph: {
     title: 'Tampa Chiropractor | Feel Good Chiropractic',
     description:
       'Get back to feeling good. Personal chiropractic care, acupuncture, and rehabilitation with Dr. Frankie Amarillas in Tampa.',
     url: '/',
+    images: [ogImage],
   },
 };
 export default function Home() {
@@ -31,7 +34,7 @@ export default function Home() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">
-              Chiropractic & acupuncture · Tampa, Florida
+              Chiropractor in Tampa · Chiropractic & acupuncture
             </p>
             <h1>
               Get back to
@@ -89,7 +92,7 @@ export default function Home() {
         <h2>
           Your life. Your pace.
           <br />
-          Care that starts with you.
+          A Tampa chiropractor who starts with you.
         </h2>
         <p>
           Tell us what’s been bothering you and what you want to get back to.
@@ -140,7 +143,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="home-doctor section">
+      <section className="home-doctor section" id="doctor">
         <div className="container home-doctor-grid">
           <figure className="real-portrait">
             <Image
@@ -204,7 +207,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="section conditions-section">
+      <section className="section conditions-section" id="conditions">
         <div className="container">
           <div className="section-heading">
             <div>
@@ -238,7 +241,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section first-visit-home">
+      <section className="section first-visit-home" id="first-visit">
         <div className="container visit-layout">
           <div>
             <p className="eyebrow">Your first visit</p>
@@ -299,7 +302,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="section">
+      <section className="section" id="resources">
         <div className="container">
           <div className="section-heading">
             <div>
@@ -350,7 +353,7 @@ export default function Home() {
               {
                 question: 'Where is the office?',
                 answer:
-                  'We’re at 5121 Ehrlich Road, Suite 109, Tampa, FL 33624. Call 813-962-2489 for appointment availability or help with directions.',
+                  'We’re at 5121 Ehrlich Road, Suite 109-A, Tampa, FL 33624. Call 813-962-2489 for appointment availability or help with directions.',
               },
             ]}
           />

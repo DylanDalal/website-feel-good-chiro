@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { DM_Sans, Outfit } from 'next/font/google';
 import { Header, Footer } from '@/components/site-shell';
-import { site } from '@/lib/site';
+import { openingHours, site } from '@/lib/site';
 import './globals.css';
 const body = DM_Sans({
   variable: '--font-body',
@@ -23,16 +23,39 @@ export const metadata: Metadata = {
     'Get back to feeling good with Dr. Frankie Amarillas. Personalized chiropractic care, acupuncture, Cox decompression, and sports rehabilitation in Tampa.',
   icons: { icon: '/favicon.png', apple: '/favicon.png' },
   robots: { index: true, follow: true },
-  openGraph: { siteName: site.name, type: 'website', locale: 'en_US' },
+  openGraph: {
+    siteName: site.name,
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/images/og-feel-good-chiropractic.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Dr. Frankie Amarillas with a patient at Feel Good Chiropractic in Tampa',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' },
 };
 const business = {
   '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
+  '@type': ['MedicalBusiness', 'Chiropractic'],
   '@id': `${site.url}/#practice`,
   name: site.name,
   url: site.url,
   telephone: '+1-813-962-2489',
   email: site.email,
+  image: `${site.url}/images/og-feel-good-chiropractic.jpg`,
+  logo: `${site.url}/images/feel-good-logo.png`,
+  medicalSpecialty: 'Chiropractic',
+  employee: { '@id': `${site.url}/#dr-frankie` },
+  availableLanguage: ['English', 'Spanish'],
+  priceRange: '$$',
+  currenciesAccepted: 'USD',
+  hasMap: site.directions,
+  geo: { '@type': 'GeoCoordinates', ...site.geo },
+  openingHoursSpecification: openingHours,
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.address,

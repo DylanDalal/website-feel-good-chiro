@@ -21,6 +21,15 @@ const person = {
     name: 'Palmer College of Chiropractic',
   },
   knowsLanguage: ['English', 'Spanish'],
+  hasCredential: [
+    'Doctor of Chiropractic (DC)',
+    'Certified Chiropractic Sports Practitioner (CCSP)',
+    'Certified Acupuncturist (CAc)',
+    'Fellow, International Academy of Neuromusculoskeletal Medicine (FIANM)',
+  ].map((name) => ({
+    '@type': 'EducationalOccupationalCredential',
+    name,
+  })),
   image: `${site.url}/images/dr-frankie.jpg`,
   url: `${site.url}/about-us`,
 };

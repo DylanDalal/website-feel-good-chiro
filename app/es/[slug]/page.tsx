@@ -3,93 +3,98 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
-import { carePages, findCare } from '@/lib/care';
+import { carePagesEs, findCareEs } from '@/lib/care-es';
 import { site } from '@/lib/site';
+import { languageAlternates, uiEs } from '@/lib/i18n';
 import { FAQ, VisitCTA, BookButton } from '@/components/site-shell';
 import { AppointmentAside } from '@/components/content';
 import { ogImage } from '@/lib/seo';
-import { languageAlternates } from '@/lib/i18n';
 export function generateStaticParams() {
-  return carePages.map(({ slug }) => ({ slug }));
+  return carePagesEs.map(({ slug }) => ({ slug }));
 }
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const page = findCare((await params).slug);
-  if (!page) return { title: 'Page not found', robots: { index: false } };
+  const page = findCareEs((await params).slug);
+  if (!page) return { title: 'Página no encontrada', robots: { index: false } };
+  const path = `/es/${page.slug}`;
   return {
     title: page.title,
     description: page.description,
-    alternates: {
-      canonical: `/${page.slug}`,
-      languages: languageAlternates(`/${page.slug}`),
-    },
+    alternates: { canonical: path, languages: languageAlternates(path) },
     openGraph: {
       title: page.title,
       description: page.description,
-      url: `/${page.slug}`,
+      url: path,
+      locale: 'es_US',
       images: [ogImage],
     },
   };
 }
-export default async function CareDetail({
+export default async function CareDetailEs({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const page = findCare((await params).slug);
+  const page = findCareEs((await params).slug);
   if (!page) notFound();
   const crumbs = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: uiEs.breadcrumbHome,
+        item: `${site.url}/es`,
+      },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Our care',
-        item: `${site.url}/care`,
+        name: uiEs.breadcrumbCare,
+        item: `${site.url}/es/cuidado`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: page.label,
-        item: `${site.url}/${page.slug}`,
+        item: `${site.url}/es/${page.slug}`,
       },
     ],
   };
-  const schema: object[] = [crumbs];
-  if (page.kind === 'service') {
-    schema.push({
+  const schema: object[] = [
+    crumbs,
+    {
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: page.label,
       description: page.description,
       serviceType: page.label,
-      url: `${site.url}/${page.slug}`,
+      url: `${site.url}/es/${page.slug}`,
       provider: { '@id': `${site.url}/#practice` },
       areaServed: { '@type': 'City', name: 'Tampa' },
-      availableLanguage: ['English', 'Spanish'],
-    });
-  }
+      availableLanguage: ['Spanish', 'English'],
+      inLanguage: 'es',
+    },
+  ];
   return (
-    <main id="main">
+    <main id="main" lang="es">
       <section className={`detail-hero ${page.kind}`}>
         <div className="container detail-hero-grid">
           <div>
-            <nav className="breadcrumbs" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
+            <nav className="breadcrumbs" aria-label="Ruta de navegación">
+              <Link href="/es">{uiEs.breadcrumbHome}</Link>
               <span>/</span>
-              <Link href="/care">Our care</Link>
+              <Link href="/es/cuidado">{uiEs.breadcrumbCare}</Link>
               <span>/</span>
               <span>{page.label}</span>
             </nav>
             <p className="eyebrow">{page.label} · Tampa, Florida</p>
             <h1>{page.headline}</h1>
             <p className="page-lede">{page.intro}</p>
-            <BookButton>Let’s find your next step</BookButton>
+            <BookButton>Encontremos su siguiente paso</BookButton>
           </div>
           <figure className="detail-photo">
             <Image
@@ -107,14 +112,7 @@ export default async function CareDetail({
       <div className="container content-layout">
         <article className="prose">
           {page.sections.map((section) => (
-            <section
-              key={section.heading}
-              id={
-                section.heading === 'Care through different stages of life.'
-                  ? 'care-through-life'
-                  : undefined
-              }
-            >
+            <section key={section.heading}>
               <h2>{section.heading}</h2>
               {section.paragraphs.map((p) => (
                 <p key={p}>{p}</p>
@@ -129,33 +127,30 @@ export default async function CareDetail({
             </section>
           ))}
           <section>
-            <p className="eyebrow">Before your visit</p>
-            <h2>A few good questions.</h2>
+            <p className="eyebrow">{uiEs.faqEyebrow}</p>
+            <h2>{uiEs.faqTitle}</h2>
             <FAQ items={page.faqs} />
           </section>
           {page.source && (
             <p className="source-note">
-              Learn more:{' '}
+              {uiEs.learnMore}:{' '}
               <a href={page.source.url} target="_blank" rel="noreferrer">
                 {page.source.label} ↗
               </a>
             </p>
           )}
-          <p className="education-note">
-            General information only. An individual examination is needed to
-            recommend care. For a medical emergency, call 911.
-          </p>
+          <p className="education-note">{uiEs.disclaimer}</p>
         </article>
-        <AppointmentAside />
+        <AppointmentAside lang="es" />
       </div>
       <section className="related-section">
         <div className="container">
-          <p className="eyebrow">Keep exploring</p>
+          <p className="eyebrow">{uiEs.keepExploring}</p>
           <div className="related-links">
             {page.related.map((slug) => {
-              const item = findCare(slug);
+              const item = findCareEs(slug);
               return item ? (
-                <Link href={`/${slug}`} key={slug}>
+                <Link href={`/es/${slug}`} key={slug}>
                   {item.label}
                   <ArrowUpRight size={24} />
                 </Link>
@@ -164,7 +159,7 @@ export default async function CareDetail({
           </div>
         </div>
       </section>
-      <VisitCTA />
+      <VisitCTA lang="es" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
