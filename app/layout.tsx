@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { DM_Sans, Outfit } from 'next/font/google';
 import { Header, Footer } from '@/components/site-shell';
 import { openingHours, site } from '@/lib/site';
+import { ogImage } from '@/lib/seo';
 import './globals.css';
 const body = DM_Sans({
   variable: '--font-body',
@@ -27,14 +28,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     type: 'website',
     locale: 'en_US',
-    images: [
-      {
-        url: '/images/og-feel-good-chiropractic.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Dr. Frankie Amarillas with a patient at Feel Good Chiropractic in Tampa',
-      },
-    ],
+    images: [ogImage],
   },
   twitter: { card: 'summary_large_image' },
 };
