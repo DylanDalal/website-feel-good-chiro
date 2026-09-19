@@ -10,9 +10,9 @@ import { languageAlternates } from '@/lib/i18n';
 export const metadata = {
   alternates: { canonical: '/', languages: languageAlternates('/') },
   openGraph: {
-    title: 'Tampa Chiropractor | Feel Good Chiropractic',
+    title: 'Tampa Chiropractor | Get back to feeling good.',
     description:
-      'Get back to feeling good. Personal chiropractic care, acupuncture, and rehabilitation with Dr. Frankie Amarillas in Tampa.',
+      'Personal chiropractic care, acupuncture, and rehabilitation with Dr. Frankie Amarillas at Feel Good Chiropractic in Tampa.',
     url: '/',
     images: [ogImage],
   },
