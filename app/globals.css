@@ -920,7 +920,7 @@ summary:focus-visible {
   overflow: hidden;
   background: var(--blush);
 }
-.life-section > img {
+.life-section img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1783,7 +1783,7 @@ summary:focus-visible {
   .life-section {
     min-height: 550px;
   }
-  .life-section > img {
+  .life-section img {
     object-position: 60% center;
   }
   .life-section:after {
