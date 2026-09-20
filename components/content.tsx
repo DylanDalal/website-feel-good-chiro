@@ -1,5 +1,4 @@
 import { Photo } from './photo';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { BookButton } from './site-shell';
 import type { CarePage } from '@/lib/care';
@@ -39,11 +38,7 @@ export function CareLinks({
   return (
     <div className="care-link-grid">
       {pages.map((page, i) => (
-        <Link
-          href={`${base}/${page.slug}`}
-          className="care-link"
-          key={page.slug}
-        >
+        <a href={`${base}/${page.slug}`} className="care-link" key={page.slug}>
           <span className="care-number">{String(i + 1).padStart(2, '0')}</span>
           <h3>{page.label}</h3>
           <p>{page.description.replace(/ in Tampa(, FL)?/g, '')}</p>
@@ -57,7 +52,7 @@ export function CareLinks({
           >
             <ArrowUpRight size={22} />
           </span>
-        </Link>
+        </a>
       ))}
     </div>
   );
@@ -90,9 +85,9 @@ export function AppointmentAside({ lang = 'en' }: { lang?: Locale }) {
       <h2>{copy.title}</h2>
       <p>{copy.text}</p>
       <BookButton>{copy.book}</BookButton>
-      <Link className="text-link" href={copy.expectHref}>
+      <a className="text-link" href={copy.expectHref}>
         {copy.expect} <ArrowUpRight size={16} />
-      </Link>
+      </a>
       <div className="aside-doctor">
         <Photo
           src="/images/dr-frankie.jpg"

@@ -1,6 +1,5 @@
 import { Photo } from '@/components/photo';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { carePages, findCare } from '@/lib/care';
@@ -80,9 +79,9 @@ export default async function CareDetail({
         <div className="container detail-hero-grid">
           <div>
             <nav className="breadcrumbs" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
+              <a href="/">Home</a>
               <span>/</span>
-              <Link href="/care">Our care</Link>
+              <a href="/care">Our care</a>
               <span>/</span>
               <span>{page.label}</span>
             </nav>
@@ -153,10 +152,10 @@ export default async function CareDetail({
             {page.related.map((slug) => {
               const item = findCare(slug);
               return item ? (
-                <Link href={`/${slug}`} key={slug}>
+                <a href={`/${slug}`} key={slug}>
                   {item.label}
                   <ArrowUpRight size={24} />
-                </Link>
+                </a>
               ) : null;
             })}
           </div>

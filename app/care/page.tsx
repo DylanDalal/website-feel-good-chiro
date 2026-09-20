@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { PageIntro, CareLinks } from '@/components/content';
 import { VisitCTA } from '@/components/site-shell';
@@ -7,7 +6,7 @@ import { languageAlternates } from '@/lib/i18n';
 export const metadata = {
   title: 'Chiropractic Services & Pain Care in Tampa',
   description:
-    'Explore chiropractic care, acupuncture, Cox decompression, sports rehabilitation, and care for back, neck, joint, and movement concerns in Tampa.',
+    'Explore chiropractic care, acupuncture, Cox decompression, sports rehabilitation, exercise recovery, and care for back, neck, joint, and movement concerns in Tampa.',
   alternates: { canonical: '/care', languages: languageAlternates('/care') },
 };
 export default function Care() {
@@ -52,19 +51,19 @@ export default function Care() {
           </div>
           <div className="condition-grid">
             {conditions.map((page) => (
-              <Link href={`/${page.slug}`} key={page.slug}>
+              <a href={`/${page.slug}`} key={page.slug}>
                 {page.label}
                 <ArrowUpRight size={24} />
-              </Link>
+              </a>
             ))}
-            <Link href="/articles/headaches">
+            <a href="/articles/headaches">
               Headaches
               <ArrowUpRight size={24} />
-            </Link>
-            <Link href="/articles/care-after-auto-accidents">
+            </a>
+            <a href="/articles/care-after-auto-accidents">
               Care after a car accident
               <ArrowUpRight size={24} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

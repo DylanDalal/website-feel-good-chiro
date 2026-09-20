@@ -1,5 +1,4 @@
 import { Photo } from '@/components/photo';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { BookButton, VisitCTA } from '@/components/site-shell';
 import { site } from '@/lib/site';
@@ -156,9 +155,9 @@ export default function About() {
               things you love. Whether your version is a workout, a walk, or a
               more comfortable workday, it is worth talking about.
             </p>
-            <Link className="text-link" href="/new-patients">
+            <a className="text-link" href="/new-patients">
               Get comfortable with your first visit <ArrowUpRight size={18} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

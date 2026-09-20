@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | Feel Good Chiropractic',
   },
   description:
-    'Get back to feeling good with Dr. Frankie Amarillas. Personalized chiropractic care, acupuncture, Cox decompression, and sports rehabilitation in Tampa.',
+    'Get back to feeling good with Dr. Frankie Amarillas. Personalized chiropractic care, acupuncture, Cox decompression, sports rehabilitation, and exercise recovery in Tampa.',
   icons: { icon: '/favicon.png', apple: '/favicon.png' },
   robots: { index: true, follow: true },
   openGraph: {

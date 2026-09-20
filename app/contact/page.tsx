@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ArrowUpRight, MapPin, Phone, Mail } from 'lucide-react';
 import { PageIntro } from '@/components/content';
 import { BookButton } from '@/components/site-shell';
@@ -142,9 +141,9 @@ export default function Contact() {
             Find your forms and get a feel for what happens at your first
             appointment.
           </p>
-          <Link className="text-link" href="/new-patients">
+          <a className="text-link" href="/new-patients">
             Plan your first visit <ArrowUpRight size={18} />
-          </Link>
+          </a>
         </div>
       </section>
     </main>

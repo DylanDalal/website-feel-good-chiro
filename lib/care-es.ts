@@ -265,6 +265,85 @@ export const carePagesEs: CarePage[] = [
     },
   },
   {
+    slug: 'recuperacion',
+    title: 'Recuperación del Ejercicio y Sauna en Tampa',
+    label: 'Recuperación y sauna',
+    kind: 'service',
+    headline: 'Recupérese como un atleta. Aunque nunca se haya sentido uno.',
+    description:
+      'Recuperación del ejercicio en Tampa con el Dr. Frankie Amarillas: ejercicio funcional, cuidado manual y un sauna en la oficina para personas activas de todo nivel.',
+    intro:
+      'El esfuerzo que usted hace cuenta. Lo que pasa después también. Ya sea que entrene para una carrera, corra detrás de sus hijos o esté volviendo al gimnasio, aquí la recuperación es parte del plan.',
+    ...actividad,
+    sections: [
+      {
+        heading: 'Personas comunes. Atención de atleta.',
+        paragraphs: [
+          'Los atletas planifican su recuperación con el mismo cuidado que su entrenamiento. Creemos que un padre de familia, alguien que trabaja en un escritorio o un golfista de fin de semana merece la misma atención. El Dr. Frankie es Practicante Quiropráctico Deportivo Certificado y lleva ese enfoque a cada paciente de una práctica familiar.',
+          'Cuéntele cómo es su semana: los entrenamientos, el trabajo, el sueño y las molestias que aparecen después. Esos detalles ayudan a dar forma a un plan de recuperación que se ajuste a su vida real.',
+        ],
+      },
+      {
+        heading: 'Cómo puede ser la recuperación.',
+        paragraphs: [
+          'Recuperarse es más que descansar. Es la manera en que su cuerpo se adapta al trabajo que usted le pide. Un plan puede reunir varias piezas, elegidas después de su examen y ajustadas sobre la marcha.',
+        ],
+        points: [
+          'Ejercicio funcional para desarrollar fuerza, movilidad y control',
+          'Cuidado quiropráctico y de tejidos blandos, cuando es adecuado',
+          'Tiempo en el sauna de nuestra oficina',
+          'Orientación sobre la carga de entrenamiento, los días de descanso y el regreso después de una pausa',
+        ],
+      },
+      {
+        heading: 'Sobre el sauna.',
+        paragraphs: [
+          'El calor es una forma sencilla y tradicional de relajarse. Muchas personas sienten que una sesión de sauna les ayuda a desconectarse y alivia la rigidez que sigue a un esfuerzo intenso. La investigación sobre el sauna y la recuperación del ejercicio aún está en desarrollo, por lo que lo tratamos como una parte cómoda de un plan y no como un tratamiento para ninguna condición.',
+          'El sauna no es para todos. Consulte primero con su médico si está embarazada o si tiene enfermedad cardíaca, presión alta no controlada, presión baja u otra condición afectada por el calor. Evítelo cuando esté enfermo o haya bebido alcohol, mantenga las sesiones cortas, tome agua después y salga de inmediato si se siente mareado o mal.',
+          'Llame a la oficina para preguntar por la disponibilidad del sauna y cómo puede combinarse con su visita.',
+        ],
+      },
+      {
+        heading: 'El ejercicio funcional, explicado.',
+        paragraphs: [
+          'El ejercicio funcional entrena los movimientos que usted realmente usa: agacharse para recoger algo, cargar las compras, alcanzar algo en alto, impulsarse para correr. El Dr. Frankie puede mostrarle ejercicios en la oficina y ayudarle a armar una rutina para continuar por su cuenta.',
+          'Un dolor agudo, una hinchazón importante o un dolor que sigue empeorando no es la molestia normal después del ejercicio. Menciónelo para que pueda evaluarse. Una sospecha de fractura, la incapacidad de usar una extremidad o síntomas de conmoción cerebral necesitan evaluación médica pronta.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Tengo que ser atleta para venir por recuperación?',
+        answer:
+          'No. La mayoría de nuestros pacientes son personas comunes: padres, profesionales, jubilados y quienes hacen ejercicio los fines de semana. La idea es darle la atención que esperaría un atleta, sea cual sea su nivel de actividad.',
+      },
+      {
+        question: '¿Puedo usar el sauna sin ser paciente quiropráctico?',
+        answer:
+          'Llame a la oficina al 813-962-2489 para preguntar por la disponibilidad actual del sauna, los horarios y si primero se necesita una visita con el Dr. Frankie.',
+      },
+      {
+        question: '¿Es normal el dolor muscular después del ejercicio?',
+        answer:
+          'Una molestia muscular leve uno o dos días después de un entrenamiento nuevo o más intenso es común y suele pasar sola. Un dolor agudo, con hinchazón o que no mejora merece una evaluación.',
+      },
+      {
+        question: '¿Me darán ejercicios para hacer en casa?',
+        answer:
+          'Cuando el ejercicio es parte de su plan, el Dr. Frankie puede demostrar los movimientos y explicar con qué frecuencia hacerlos. Pregunte cómo debe cambiar su rutina conforme avanza.',
+      },
+    ],
+    related: [
+      'quiropractica-deportiva',
+      'terapia-de-tejidos-blandos',
+      'quiropractica',
+    ],
+    source: {
+      label: 'Harvard Health: Beneficios y seguridad del sauna (en inglés)',
+      url: 'https://www.health.harvard.edu/staying-healthy/saunas-and-your-health',
+    },
+  },
+  {
     slug: 'terapia-de-tejidos-blandos',
     title: 'Terapia de Tejidos Blandos en Tampa',
     label: 'Tejidos blandos',

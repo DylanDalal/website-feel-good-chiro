@@ -950,6 +950,10 @@ summary:focus-visible {
 }
 .life-section p:not(.eyebrow) {
   margin-block: 25px;
+  max-width: 470px;
+}
+.life-section .hero-actions {
+  margin-top: 0;
 }
 .conditions-section {
   background: linear-gradient(var(--paper), #bde0fe40);

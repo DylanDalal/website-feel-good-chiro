@@ -1,4 +1,3 @@
-import Link from 'next/link';
 export default function NotFound() {
   return (
     <main id="main" className="page-intro">
@@ -14,12 +13,12 @@ export default function NotFound() {
           or head back home.
         </p>
         <div className="hero-actions">
-          <Link className="button" href="/">
+          <a className="button" href="/">
             Back to feeling good ↗
-          </Link>
-          <Link className="text-link" href="/care">
+          </a>
+          <a className="text-link" href="/care">
             Explore our care
-          </Link>
+          </a>
         </div>
       </div>
     </main>

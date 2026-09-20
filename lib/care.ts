@@ -261,10 +261,85 @@ export const carePages: CarePage[] = [
           'Call the office to ask about current availability, the requirements of your organization, and any forms that need to be completed before scheduling.',
       },
     ],
-    related: ['knee-pain', 'shoulder-pain', 'foot-care'],
+    related: ['exercise-recovery', 'knee-pain', 'shoulder-pain'],
     source: {
       label: 'NIAMS: Sports injury diagnosis and treatment',
       url: 'https://www.niams.nih.gov/health-topics/sports-injuries/diagnosis-treatment-and-steps-to-take',
+    },
+  },
+  {
+    slug: 'exercise-recovery',
+    title: 'Exercise Recovery & Sauna in Tampa',
+    label: 'Recovery & sauna',
+    kind: 'service',
+    headline: 'Recover like an athlete. Even if you’ve never felt like one.',
+    description:
+      'Exercise recovery in Tampa with Dr. Frankie Amarillas: functional exercise, hands-on care, and an in-office sauna for active people at every level.',
+    intro:
+      'The work you put in matters. So does what happens after it. Whether you’re training for a race, chasing your kids, or getting back to the gym, recovery is part of the plan here.',
+    ...active,
+    sections: [
+      {
+        heading: 'Everyday people. Athlete-level attention.',
+        paragraphs: [
+          'Athletes plan their recovery as carefully as their training. We think a parent, a desk worker, or a weekend golfer deserves the same attention. Dr. Frankie is a Certified Chiropractic Sports Practitioner, and he brings that approach to every patient in a family practice.',
+          'Tell him what your week looks like: the workouts, the job, the sleep, and the aches that show up afterward. Those details help shape a recovery plan that fits your real life.',
+        ],
+      },
+      {
+        heading: 'What recovery can look like.',
+        paragraphs: [
+          'Recovery is more than rest. It’s how your body adapts to the work you ask of it. A plan can bring together several pieces, chosen after your examination and adjusted as you go.',
+        ],
+        points: [
+          'Functional exercise to build strength, mobility, and control',
+          'Hands-on chiropractic and soft tissue care, when suitable',
+          'Time in our in-office sauna',
+          'Guidance on training load, rest days, and returning after a layoff',
+        ],
+      },
+      {
+        heading: 'About the sauna.',
+        paragraphs: [
+          'Heat is a simple, time-tested way to relax. Many people find a sauna session helps them unwind and eases the stiffness that follows a hard effort. Research on sauna use and exercise recovery is still developing, so we treat it as one comfortable part of a plan rather than a treatment for any condition.',
+          'A sauna isn’t right for everyone. Check with your doctor first if you are pregnant or have heart disease, uncontrolled high blood pressure, low blood pressure, or another condition affected by heat. Skip it when you are ill or have been drinking alcohol, keep sessions short, drink water afterward, and step out right away if you feel dizzy or unwell.',
+          'Call the office to ask about sauna availability and how it can fit around your visit.',
+        ],
+      },
+      {
+        heading: 'Functional exercise, explained.',
+        paragraphs: [
+          'Functional exercise trains the movements you actually use: squatting to pick something up, carrying groceries, reaching overhead, pushing off for a run. Dr. Frankie can show you exercises in the office and help you build a routine to continue on your own.',
+          'Sharp pain, significant swelling, or soreness that keeps getting worse is not ordinary post-workout soreness. Bring it up so it can be assessed. A suspected fracture, an inability to use a limb, or concussion symptoms need prompt medical evaluation.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I have to be an athlete to come in for recovery?',
+        answer:
+          'No. Most of our patients are everyday people: parents, professionals, retirees, and weekend exercisers. The idea is to give you the kind of attention an athlete would expect, whatever your activity level.',
+      },
+      {
+        question: 'Can I use the sauna without being a chiropractic patient?',
+        answer:
+          'Call the office at 813-962-2489 to ask about current sauna availability, scheduling, and whether a visit with Dr. Frankie is needed first.',
+      },
+      {
+        question: 'Is soreness after exercise normal?',
+        answer:
+          'Mild muscle soreness a day or two after a new or harder workout is common and usually settles on its own. Pain that is sharp, comes with swelling, or does not improve deserves an assessment.',
+      },
+      {
+        question: 'Will I get exercises to do at home?',
+        answer:
+          'When exercise is part of your plan, Dr. Frankie can demonstrate the movements and explain how often to do them. Ask how your routine should change as you progress.',
+      },
+    ],
+    related: ['sports-chiropractic', 'soft-tissue-therapy', 'knee-pain'],
+    source: {
+      label: 'Harvard Health: Sauna benefits and safety',
+      url: 'https://www.health.harvard.edu/staying-healthy/saunas-and-your-health',
     },
   },
   {

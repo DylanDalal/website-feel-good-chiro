@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { PageIntro } from '@/components/content';
 import { VisitCTA } from '@/components/site-shell';
@@ -50,7 +49,7 @@ export default function Articles() {
               {articles
                 .filter((a) => a.category === category)
                 .map((article) => (
-                  <Link
+                  <a
                     className="resource-card"
                     href={`/articles/${article.slug}`}
                     key={article.slug}
@@ -61,7 +60,7 @@ export default function Articles() {
                     <span className="text-link">
                       Read article <ArrowUpRight size={16} />
                     </span>
-                  </Link>
+                  </a>
                 ))}
             </div>
           </div>

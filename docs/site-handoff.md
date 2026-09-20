@@ -5,7 +5,7 @@ The approved pink sunset direction is now the application, not just a standalone
 ## Pages
 
 - Home, care overview, doctor profile, first visit, contact, patient perspectives, and website privacy.
-- Five treatment pages: chiropractic, acupuncture, Cox flexion-distraction, sports/rehabilitation, and soft tissue care.
+- Six treatment pages: chiropractic, acupuncture, Cox flexion-distraction, sports/rehabilitation, exercise recovery and sauna, and soft tissue care.
 - Seven concern pages: back, neck, sciatica, knee, shoulder, joint/hip, and foot/ankle.
 - Thirteen retained educational articles with a redesigned topic index.
 - Shared navigation, mobile menu, mobile call/booking links, and missing-page responses.

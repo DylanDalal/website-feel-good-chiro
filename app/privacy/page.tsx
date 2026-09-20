@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { site } from '@/lib/site';
 export const metadata = {
   title: 'Website Privacy',
@@ -50,9 +49,9 @@ export default function Privacy() {
         is difficult to access, the office can help you obtain the information
         another way.
       </p>
-      <Link className="text-link" href="/contact">
+      <a className="text-link" href="/contact">
         Office contact information
-      </Link>
+      </a>
     </main>
   );
 }

@@ -1,5 +1,4 @@
 import { Photo } from '@/components/photo';
-import Link from 'next/link';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { BookButton, FAQ, VisitCTA } from '@/components/site-shell';
 import { services, conditions } from '@/lib/care';
@@ -12,7 +11,7 @@ export const metadata = {
   openGraph: {
     title: 'Tampa Chiropractor | Get back to feeling good.',
     description:
-      'Personal chiropractic care, acupuncture, and rehabilitation with Dr. Frankie Amarillas at Feel Good Chiropractic in Tampa.',
+      'Personal chiropractic care, acupuncture, rehabilitation, and exercise recovery with Dr. Frankie Amarillas at Feel Good Chiropractic in Tampa.',
     url: '/',
     images: [ogImage],
   },
@@ -32,7 +31,7 @@ export default function Home() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">
-              Chiropractor in Tampa · Chiropractic & acupuncture
+              Chiropractor in Tampa · Chiropractic, acupuncture & recovery
             </p>
             <h1>
               Get back to
@@ -42,13 +41,13 @@ export default function Home() {
             <p className="hero-lede">
               More comfortable days. More of what you love.
               <br />
-              Personal care with Dr. Frankie Amarillas.
+              Personal care and exercise recovery with Dr. Frankie Amarillas.
             </p>
             <div className="hero-actions">
               <BookButton>Find your next step</BookButton>
-              <Link className="text-link" href="/about-us">
+              <a className="text-link" href="/about-us">
                 Meet Dr. Frankie <ArrowUpRight size={16} />
-              </Link>
+              </a>
             </div>
           </div>
           <div className="hero-portraits">
@@ -96,7 +95,7 @@ export default function Home() {
           <span>Se habla Español</span>
         </div>
       </section>
-      <section className="home-care section">
+      <section className="home-care section" id="services">
         <div className="container">
           <div className="section-heading">
             <div>
@@ -114,7 +113,7 @@ export default function Home() {
           </div>
           <div className="home-service-list">
             {services.map((s, i) => (
-              <Link href={`/${s.slug}`} key={s.slug}>
+              <a href={`/${s.slug}`} key={s.slug}>
                 <span className="service-number">0{i + 1}</span>
                 <h3>{s.label}</h3>
                 <p>
@@ -124,12 +123,13 @@ export default function Home() {
                       'A conversation about how acupuncture might fit your care.',
                       'Cox flexion-distraction for appropriate lower-back concerns.',
                       'Functional training with your favorite activities in mind.',
+                      'Functional exercise, hands-on care, and an in-office sauna.',
                       'Focused techniques for muscles and surrounding tissues.',
                     ][i]
                   }
                 </p>
                 <ArrowUpRight size={27} aria-hidden="true" />
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -166,13 +166,13 @@ export default function Home() {
               fan of life outdoors. He’s here to help you make sense of your
               next step.
             </p>
-            <Link className="text-link" href="/about-us">
+            <a className="text-link" href="/about-us">
               Get to know Dr. Frankie <ArrowUpRight size={18} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
-      <section className="life-section">
+      <section className="life-section" id="recovery">
         <Photo
           src="/images/active-tampa-couple.jpg"
           alt="Two adults enjoying a sunny walk together"
@@ -180,18 +180,27 @@ export default function Home() {
           height={800}
         />
         <div className="container">
-          <p className="eyebrow">Your kind of feeling good</p>
+          <p className="eyebrow">Exercise recovery · Functional rehab</p>
           <h2>
-            The walk.
-            <br />
             The workout.
+            <br />
+            The recovery.
             <br />
             The whole weekend.
           </h2>
-          <p>What do you want to get back to?</p>
-          <Link className="button" href="/sports-chiropractic">
-            Let’s talk movement <ArrowUpRight size={18} />
-          </Link>
+          <p>
+            You don’t have to be a pro to recover like one. Functional exercise,
+            hands-on care, and an in-office sauna for whatever you want to get
+            back to.
+          </p>
+          <div className="hero-actions">
+            <a className="button" href="/exercise-recovery">
+              Explore recovery <ArrowUpRight size={18} />
+            </a>
+            <a className="text-link" href="/sports-chiropractic">
+              Sports & rehabilitation <ArrowUpRight size={16} />
+            </a>
+          </div>
         </div>
       </section>
       <section className="section conditions-section" id="conditions">
@@ -212,19 +221,19 @@ export default function Home() {
           </div>
           <div className="condition-grid">
             {conditions.map((page) => (
-              <Link href={`/${page.slug}`} key={page.slug}>
+              <a href={`/${page.slug}`} key={page.slug}>
                 {page.label}
                 <ArrowUpRight size={24} />
-              </Link>
+              </a>
             ))}
-            <Link href="/articles/headaches">
+            <a href="/articles/headaches">
               Headaches
               <ArrowUpRight size={24} />
-            </Link>
-            <Link href="/articles/care-after-auto-accidents">
+            </a>
+            <a href="/articles/care-after-auto-accidents">
               After a car accident
               <ArrowUpRight size={24} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -241,9 +250,9 @@ export default function Home() {
               No need to have it all figured out. That’s what the conversation
               is for.
             </p>
-            <Link className="text-link" href="/new-patients">
+            <a className="text-link" href="/new-patients">
               Plan your first visit <ArrowUpRight size={18} />
-            </Link>
+            </a>
           </div>
           <ol className="steps">
             <li>
@@ -284,9 +293,9 @@ export default function Home() {
             “He is clearly tailoring his treatment for each patient.”
           </blockquote>
           <p>Janel C. · Excerpt from a published patient review</p>
-          <Link className="text-link" href="/reviews">
+          <a className="text-link" href="/reviews">
             More patient perspectives <ArrowUpRight size={18} />
-          </Link>
+          </a>
         </div>
       </section>
       <section className="section" id="resources">
@@ -300,13 +309,13 @@ export default function Home() {
                 More understanding.
               </h2>
             </div>
-            <Link className="text-link" href="/articles">
+            <a className="text-link" href="/articles">
               All articles <ArrowUpRight size={18} />
-            </Link>
+            </a>
           </div>
           <div className="resource-grid">
             {[articles[1], articles[2], articles[8]].map((a) => (
-              <Link
+              <a
                 className="resource-card"
                 href={`/articles/${a.slug}`}
                 key={a.slug}
@@ -317,12 +326,12 @@ export default function Home() {
                 <span className="text-link">
                   Read the article <ArrowUpRight size={16} />
                 </span>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
       </section>
-      <section className="section faq-section">
+      <section className="section faq-section" id="questions">
         <div className="container faq-layout">
           <div>
             <p className="eyebrow">Before you visit</p>

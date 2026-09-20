@@ -1,13 +1,12 @@
-import Link from 'next/link';
 import { ArrowUpRight, Phone, MapPin } from 'lucide-react';
 import { site } from '@/lib/site';
 import { SiteNav, HeaderActions } from '@/components/site-nav';
 
 export function Brand() {
   return (
-    <Link className="brand" href="/" aria-label="Feel Good Chiropractic home">
+    <a className="brand" href="/" aria-label="Feel Good Chiropractic home">
       feel good<span>CHIROPRACTIC</span>
-    </Link>
+    </a>
   );
 }
 
@@ -49,18 +48,19 @@ export function Footer() {
         </div>
         <div>
           <h2>Find your feel good</h2>
-          <Link href="/chiropractic-care">Chiropractic care</Link>
-          <Link href="/acupuncture">Acupuncture</Link>
-          <Link href="/cox-spinal-decompression">Cox decompression</Link>
-          <Link href="/sports-chiropractic">Sports & rehabilitation</Link>
-          <Link href="/care#conditions">Pain & movement</Link>
+          <a href="/chiropractic-care">Chiropractic care</a>
+          <a href="/acupuncture">Acupuncture</a>
+          <a href="/cox-spinal-decompression">Cox decompression</a>
+          <a href="/sports-chiropractic">Sports & rehabilitation</a>
+          <a href="/exercise-recovery">Recovery & sauna</a>
+          <a href="/care#conditions">Pain & movement</a>
         </div>
         <div>
           <h2>Make yourself at home</h2>
-          <Link href="/about-us">Meet Dr. Frankie</Link>
-          <Link href="/new-patients">New patients & forms</Link>
-          <Link href="/articles">Articles & resources</Link>
-          <Link href="/contact">Hours & directions</Link>
+          <a href="/about-us">Meet Dr. Frankie</a>
+          <a href="/new-patients">New patients & forms</a>
+          <a href="/articles">Articles & resources</a>
+          <a href="/contact">Hours & directions</a>
           <a
             href="https://www.designsforhealth.com/u/frankieamarillasdc"
             target="_blank"
@@ -89,7 +89,7 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Feel Good Chiropractic</span>
-        <Link href="/privacy">Privacy</Link>
+        <a href="/privacy">Privacy</a>
         <span>Be well. Live well.</span>
       </div>
       <div className="mobile-actions">

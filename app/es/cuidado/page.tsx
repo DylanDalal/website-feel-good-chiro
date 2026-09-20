@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { PageIntro, CareLinks } from '@/components/content';
 import { VisitCTA } from '@/components/site-shell';
@@ -62,30 +61,30 @@ export default function CuidadoEs() {
             </p>
           </div>
           <div className="condition-grid">
-            <Link href="/es/quiropractica">
+            <a href="/es/quiropractica">
               Dolor de espalda
               <ArrowUpRight size={24} />
-            </Link>
-            <Link href="/es/quiropractica">
+            </a>
+            <a href="/es/quiropractica">
               Dolor de cuello
               <ArrowUpRight size={24} />
-            </Link>
-            <Link href="/es/descompresion-cox">
+            </a>
+            <a href="/es/descompresion-cox">
               Ciática
               <ArrowUpRight size={24} />
-            </Link>
-            <Link href="/es/quiropractica-deportiva">
+            </a>
+            <a href="/es/quiropractica-deportiva">
               Lesiones deportivas
               <ArrowUpRight size={24} />
-            </Link>
-            <Link href="/es/terapia-de-tejidos-blandos">
+            </a>
+            <a href="/es/terapia-de-tejidos-blandos">
               Tensión muscular
               <ArrowUpRight size={24} />
-            </Link>
-            <Link href="/es/acupuntura">
+            </a>
+            <a href="/es/acupuntura">
               Dolor de cabeza
               <ArrowUpRight size={24} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

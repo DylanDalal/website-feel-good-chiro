@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
@@ -8,7 +7,9 @@ import { counterpart } from '@/lib/i18n';
 import { site } from '@/lib/site';
 
 function useLocale() {
-  const pathname = usePathname();
+  // Static hosts serve /care from /care/index.html, so the browser can land on
+  // /care/; route matching below expects no trailing slash.
+  const pathname = usePathname().replace(/(.)\/+$/, '$1');
   const isEs = pathname === '/es' || pathname.startsWith('/es/');
   return { pathname, isEs, links: isEs ? navLinksEs : navLinks };
 }
@@ -29,20 +30,14 @@ export function SiteNav() {
     const root = document.documentElement;
     let frame = 0;
     // Offsets are measured up front so the scroll handler never forces layout.
+    // Every top-level section is a spot, so one that belongs to no link clears
+    // the highlight instead of leaving the previous link lit.
     let spots: { top: number; index: number }[] = [];
     const measure = () => {
-      spots = [];
-      links.forEach((link, index) => {
-        for (const id of link.sections) {
-          const el = document.getElementById(id);
-          if (el) {
-            spots.push({
-              top: el.getBoundingClientRect().top + window.scrollY,
-              index,
-            });
-          }
-        }
-      });
+      spots = [...document.querySelectorAll('main > section')].map((el) => ({
+        top: el.getBoundingClientRect().top + window.scrollY,
+        index: links.findIndex((link) => link.sections.includes(el.id)),
+      }));
     };
     const update = () => {
       frame = 0;
@@ -53,38 +48,28 @@ export function SiteNav() {
       if (!onHome) return;
       const line = y + window.innerHeight * 0.3;
       let current = -1;
-      let closest = -Infinity;
       for (const spot of spots) {
-        if (spot.top <= line && spot.top > closest) {
-          closest = spot.top;
-          current = spot.index;
-        }
+        if (spot.top > line) break;
+        current = spot.index;
       }
       setScrolled(current);
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(update);
     };
-    const onResize = () => {
-      measure();
+    // Re-measures whenever the page height changes (web fonts swapping in, an
+    // FAQ opening, a resize), not only on window resize. Its callback runs after
+    // layout, so measuring there never forces a reflow after hydration.
+    const observer = new ResizeObserver(() => {
+      if (onHome) measure();
       onScroll();
-    };
-    // Deferred: measuring on mount forces a layout right after hydration, which
-    // Lighthouse flags as a forced reflow on the critical path.
-    const canIdle = typeof window.requestIdleCallback === 'function';
-    const idle = canIdle
-      ? window.requestIdleCallback(onResize)
-      : window.setTimeout(onResize, 200);
+    });
+    observer.observe(document.body);
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize);
-    window.addEventListener('load', onResize);
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onResize);
-      window.removeEventListener('load', onResize);
+      observer.disconnect();
       cancelAnimationFrame(frame);
-      if (canIdle) window.cancelIdleCallback(idle);
-      else window.clearTimeout(idle);
       root.classList.remove('is-scrolled');
     };
   }, [onHome, links]);
@@ -95,7 +80,7 @@ export function SiteNav() {
       aria-label={isEs ? 'Navegación principal' : 'Main navigation'}
     >
       {links.map((link, index) => (
-        <Link
+        <a
           href={link.href}
           key={link.href}
           className={index === active ? 'is-active' : undefined}
@@ -104,7 +89,7 @@ export function SiteNav() {
           }
         >
           {link.label}
-        </Link>
+        </a>
       ))}
     </nav>
   );
@@ -120,7 +105,7 @@ export function HeaderActions() {
       : { href: '/es', to: 'es' as const });
   return (
     <div className="header-actions">
-      <Link
+      <a
         className="lang-toggle"
         href={other.href}
         hrefLang={other.to}
@@ -132,7 +117,7 @@ export function HeaderActions() {
         }
       >
         {other.to === 'es' ? 'Español' : 'English'}
-      </Link>
+      </a>
       <a
         className="button"
         href={site.booking}

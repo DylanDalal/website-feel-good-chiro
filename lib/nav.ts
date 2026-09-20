@@ -1,22 +1,37 @@
 export type NavLink = {
   label: string;
   href: string;
-  /** Home page section ids this link covers, for the scroll highlight. */
+  /**
+   * Home page section ids this link covers, for the scroll highlight. A home
+   * section listed under no link clears the highlight while it is in view.
+   */
   sections: string[];
 };
 /** Spanish nav only points at pages that actually exist in Spanish. */
 export const navLinksEs: NavLink[] = [
-  { label: 'Nuestro cuidado', href: '/es/cuidado', sections: ['cuidado'] },
-  { label: 'Tu primera visita', href: '/es/nuevos-pacientes', sections: [] },
+  {
+    label: 'Nuestro cuidado',
+    href: '/es/cuidado',
+    sections: ['cuidado', 'servicios'],
+  },
+  {
+    label: 'Tu primera visita',
+    href: '/es/nuevos-pacientes',
+    sections: ['preguntas'],
+  },
   { label: 'Visítanos', href: '/es/visitanos', sections: ['visit'] },
 ];
 export const navLinks: NavLink[] = [
-  { label: 'Our care', href: '/care', sections: ['care', 'conditions'] },
+  {
+    label: 'Our care',
+    href: '/care',
+    sections: ['care', 'services', 'recovery'],
+  },
   { label: 'Dr. Frankie', href: '/about-us', sections: ['doctor'] },
   {
     label: 'Your first visit',
     href: '/new-patients',
-    sections: ['first-visit'],
+    sections: ['first-visit', 'questions'],
   },
   { label: 'Resources', href: '/articles', sections: ['resources'] },
   { label: 'Visit us', href: '/contact', sections: ['visit'] },
@@ -27,6 +42,7 @@ const carePaths = [
   'acupuncture',
   'cox-spinal-decompression',
   'sports-chiropractic',
+  'exercise-recovery',
   'soft-tissue-therapy',
   'back-pain',
   'neck-pain',

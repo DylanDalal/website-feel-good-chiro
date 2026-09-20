@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ArrowUpRight, MapPin, Phone, Mail } from 'lucide-react';
 import { PageIntro } from '@/components/content';
 import { BookButton, VisitCTA } from '@/components/site-shell';
@@ -140,9 +139,9 @@ export default function VisitanosEs() {
         <div className="container">
           <p className="eyebrow">¿Es nuevo por aquí?</p>
           <h2>Le ayudaremos a sentirse en casa.</h2>
-          <Link className="text-link" href="/es/nuevos-pacientes">
+          <a className="text-link" href="/es/nuevos-pacientes">
             Qué esperar en su primera visita <ArrowUpRight size={18} />
-          </Link>
+          </a>
         </div>
       </section>
       <VisitCTA lang="es" />

@@ -1,6 +1,5 @@
 import { Photo } from '@/components/photo';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { articles, findArticle } from '../data';
@@ -53,9 +52,9 @@ export default async function ArticleDetail({
     <main id="main">
       <article>
         <header className="article-intro container">
-          <Link className="text-link" href="/articles">
+          <a className="text-link" href="/articles">
             <ArrowLeft size={16} /> The feel good library
-          </Link>
+          </a>
           <p className="eyebrow">{a.category}</p>
           <h1>{a.title}</h1>
           <p className="page-lede">{a.description}</p>
@@ -85,9 +84,9 @@ export default async function ArticleDetail({
                 Your symptoms, health history, and goals deserve their own
                 conversation.
               </p>
-              <Link className="text-link" href="/care">
+              <a className="text-link" href="/care">
                 Explore our care <ArrowUpRight size={18} />
-              </Link>
+              </a>
             </div>
           </div>
           <AppointmentAside />
@@ -98,10 +97,10 @@ export default async function ArticleDetail({
           <p className="eyebrow">A little more reading</p>
           <div className="related-links">
             {related.map((x) => (
-              <Link href={`/articles/${x.slug}`} key={x.slug}>
+              <a href={`/articles/${x.slug}`} key={x.slug}>
                 {x.title}
                 <ArrowUpRight size={22} />
-              </Link>
+              </a>
             ))}
           </div>
         </div>

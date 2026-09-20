@@ -1,5 +1,4 @@
 import { Photo } from '@/components/photo';
-import Link from 'next/link';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { BookButton, FAQ, VisitCTA } from '@/components/site-shell';
 import { CareLinks } from '@/components/content';
@@ -65,13 +64,13 @@ export default function HomeEs() {
             <p className="hero-lede">
               Días más cómodos. Más de lo que le gusta.
               <br />
-              Cuidado personal con el Dr. Frankie Amarillas.
+              Cuidado personal y recuperación con el Dr. Frankie Amarillas.
             </p>
             <div className="hero-actions">
               <BookButton>Encuentre su siguiente paso</BookButton>
-              <Link className="text-link" href="/es/cuidado">
+              <a className="text-link" href="/es/cuidado">
                 Ver nuestro cuidado <ArrowUpRight size={16} />
-              </Link>
+              </a>
             </div>
           </div>
           <div className="hero-portraits">
@@ -120,7 +119,7 @@ export default function HomeEs() {
           <span>Se habla español</span>
         </div>
       </section>
-      <section className="home-care section">
+      <section className="home-care section" id="servicios">
         <div className="container">
           <div className="section-heading">
             <div>
@@ -171,9 +170,9 @@ export default function HomeEs() {
               aficionado a la vida al aire libre. Está aquí para ayudarle a
               entender su siguiente paso.
             </p>
-            <Link className="text-link" href="/es/cuidado">
+            <a className="text-link" href="/es/cuidado">
               Ver todo el cuidado <ArrowUpRight size={18} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

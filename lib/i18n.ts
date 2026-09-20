@@ -9,6 +9,7 @@ export const routePairs: { en: string; es: string }[] = [
   { en: '/acupuncture', es: '/es/acupuntura' },
   { en: '/cox-spinal-decompression', es: '/es/descompresion-cox' },
   { en: '/sports-chiropractic', es: '/es/quiropractica-deportiva' },
+  { en: '/exercise-recovery', es: '/es/recuperacion' },
   { en: '/soft-tissue-therapy', es: '/es/terapia-de-tejidos-blandos' },
 ];
 export function pairFor(path: string) {
