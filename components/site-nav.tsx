@@ -30,8 +30,8 @@ export function SiteNav() {
     const root = document.documentElement;
     let frame = 0;
     // Offsets are measured up front so the scroll handler never forces layout.
-    // Every top-level section is a spot, so one that belongs to no link clears
-    // the highlight instead of leaving the previous link lit.
+    // A section that belongs to no link leaves the previous link lit, so the
+    // highlight only clears above the first linked section (the hero).
     let spots: { top: number; index: number }[] = [];
     const measure = () => {
       spots = [...document.querySelectorAll('main > section')].map((el) => ({
@@ -50,7 +50,7 @@ export function SiteNav() {
       let current = -1;
       for (const spot of spots) {
         if (spot.top > line) break;
-        current = spot.index;
+        if (spot.index !== -1) current = spot.index;
       }
       setScrolled(current);
     };

@@ -3,7 +3,7 @@ export type NavLink = {
   href: string;
   /**
    * Home page section ids this link covers, for the scroll highlight. A home
-   * section listed under no link clears the highlight while it is in view.
+   * section listed under no link keeps the previous link highlighted.
    */
   sections: string[];
 };
@@ -25,7 +25,7 @@ export const navLinks: NavLink[] = [
   {
     label: 'Our care',
     href: '/care',
-    sections: ['care', 'services', 'recovery'],
+    sections: ['care', 'services'],
   },
   { label: 'Dr. Frankie', href: '/about-us', sections: ['doctor'] },
   {
