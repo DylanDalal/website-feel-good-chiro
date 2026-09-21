@@ -180,17 +180,17 @@ export default function Home() {
           height={941}
         />
         <div className="container">
-          <p className="eyebrow">Exercise recovery · Functional rehab</p>
+          <p className="eyebrow">Exercise recovery</p>
           <h2>
-            The workout.
+            Recover after
             <br />
-            The recovery.
-            <br />
-            The whole weekend.
+            your workouts.
           </h2>
           <p>
-            You don’t have to be a pro to recover like one. Functional exercise,
-            hands-on care, and an infrared sauna that’s open to everyone.
+            Sore, stiff, or worn out after training? Dr. Frankie is a certified
+            sports chiropractor with the tools and the knowledge to help you
+            recover: hands-on chiropractic and soft tissue care, functional
+            exercise, and an infrared sauna right here in the office.
           </p>
           <div className="hero-actions">
             <a className="button" href="/exercise-recovery">
