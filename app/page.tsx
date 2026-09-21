@@ -187,10 +187,10 @@ export default function Home() {
             your workouts.
           </h2>
           <p>
-            Sore, stiff, or worn out after training? Dr. Frankie is a certified
-            sports chiropractor with the tools and the knowledge to help you
-            recover: hands-on chiropractic and soft tissue care, functional
-            exercise, and an infrared sauna right here in the office.
+            Sore, stiff, or worn out after training? Dr. Frankie is a Certified
+            Chiropractic Sports Practitioner with the tools and the knowledge to
+            help you recover: hands-on chiropractic and soft tissue care,
+            functional exercise, and an infrared sauna right here in the office.
           </p>
           <div className="hero-actions">
             <a className="button" href="/exercise-recovery">
