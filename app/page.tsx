@@ -123,7 +123,7 @@ export default function Home() {
                       'A conversation about how acupuncture might fit your care.',
                       'Cox flexion-distraction for appropriate lower-back concerns.',
                       'Functional training with your favorite activities in mind.',
-                      'Functional exercise, hands-on care, and an in-office sauna.',
+                      'Functional exercise, hands-on care, and an infrared sauna open to all.',
                       'Focused techniques for muscles and surrounding tissues.',
                     ][i]
                   }
@@ -174,10 +174,10 @@ export default function Home() {
       </section>
       <section className="life-section" id="recovery">
         <Photo
-          src="/images/active-tampa-couple.jpg"
-          alt="Two adults enjoying a sunny walk together"
-          width={1200}
-          height={800}
+          src="/images/infrared-sauna.jpg"
+          alt="The infrared sauna at Feel Good Chiropractic"
+          width={1672}
+          height={941}
         />
         <div className="container">
           <p className="eyebrow">Exercise recovery · Functional rehab</p>
@@ -190,8 +190,7 @@ export default function Home() {
           </h2>
           <p>
             You don’t have to be a pro to recover like one. Functional exercise,
-            hands-on care, and an in-office sauna for whatever you want to get
-            back to.
+            hands-on care, and an infrared sauna that’s open to everyone.
           </p>
           <div className="hero-actions">
             <a className="button" href="/exercise-recovery">

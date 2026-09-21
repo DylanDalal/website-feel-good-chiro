@@ -7,6 +7,11 @@ const actividad = {
   image: '/images/active-tampa-couple.jpg',
   imageAlt: 'Dos adultos disfrutando de una caminata soleada',
 };
+const sauna = {
+  image: '/images/infrared-sauna.jpg',
+  imageAlt: 'El sauna infrarrojo de Feel Good Chiropractic en Tampa',
+  imagePosition: 'right center',
+};
 const movimiento = {
   image: '/images/shoulder-mobility.jpg',
   imageAlt: 'Evaluación manual del movimiento del hombro',
@@ -266,15 +271,15 @@ export const carePagesEs: CarePage[] = [
   },
   {
     slug: 'recuperacion',
-    title: 'Recuperación del Ejercicio y Sauna en Tampa',
+    title: 'Recuperación del Ejercicio y Sauna Infrarrojo en Tampa',
     label: 'Recuperación y sauna',
     kind: 'service',
     headline: 'Recupérese como un atleta. Aunque nunca se haya sentido uno.',
     description:
-      'Recuperación del ejercicio en Tampa con el Dr. Frankie Amarillas: ejercicio funcional, cuidado manual y un sauna en la oficina para personas activas de todo nivel.',
+      'Recuperación del ejercicio en Tampa con el Dr. Frankie Amarillas: ejercicio funcional, cuidado manual y un sauna infrarrojo abierto a todos.',
     intro:
       'El esfuerzo que usted hace cuenta. Lo que pasa después también. Ya sea que entrene para una carrera, corra detrás de sus hijos o esté volviendo al gimnasio, aquí la recuperación es parte del plan.',
-    ...actividad,
+    ...sauna,
     sections: [
       {
         heading: 'Personas comunes. Atención de atleta.',
@@ -291,16 +296,16 @@ export const carePagesEs: CarePage[] = [
         points: [
           'Ejercicio funcional para desarrollar fuerza, movilidad y control',
           'Cuidado quiropráctico y de tejidos blandos, cuando es adecuado',
-          'Tiempo en el sauna de nuestra oficina',
+          'Tiempo en el sauna infrarrojo de nuestra oficina',
           'Orientación sobre la carga de entrenamiento, los días de descanso y el regreso después de una pausa',
         ],
       },
       {
-        heading: 'Sobre el sauna.',
+        heading: 'Sobre el sauna infrarrojo.',
         paragraphs: [
-          'El calor es una forma sencilla y tradicional de relajarse. Muchas personas sienten que una sesión de sauna les ayuda a desconectarse y alivia la rigidez que sigue a un esfuerzo intenso. La investigación sobre el sauna y la recuperación del ejercicio aún está en desarrollo, por lo que lo tratamos como una parte cómoda de un plan y no como un tratamiento para ninguna condición.',
+          'Nuestro sauna es infrarrojo. En lugar de calentar el aire a su alrededor como un sauna tradicional, los calentadores infrarrojos calientan su cuerpo directamente, por lo que la cabina se mantiene a una temperatura más baja y cómoda. Muchas personas sienten que una sesión de sauna les ayuda a desconectarse y alivia la rigidez que sigue a un esfuerzo intenso. La investigación sobre el sauna y la recuperación del ejercicio aún está en desarrollo, por lo que lo tratamos como una parte cómoda de un plan y no como un tratamiento para ninguna condición.',
           'El sauna no es para todos. Consulte primero con su médico si está embarazada o si tiene enfermedad cardíaca, presión alta no controlada, presión baja u otra condición afectada por el calor. Evítelo cuando esté enfermo o haya bebido alcohol, mantenga las sesiones cortas, tome agua después y salga de inmediato si se siente mareado o mal.',
-          'Llame a la oficina para preguntar por la disponibilidad del sauna y cómo puede combinarse con su visita.',
+          'El sauna está abierto a todos. No necesita ser paciente quiropráctico para reservar una sesión. Llame a la oficina para apartar un horario o pregunte cómo combinarlo con su visita.',
         ],
       },
       {
@@ -320,7 +325,7 @@ export const carePagesEs: CarePage[] = [
       {
         question: '¿Puedo usar el sauna sin ser paciente quiropráctico?',
         answer:
-          'Llame a la oficina al 813-962-2489 para preguntar por la disponibilidad actual del sauna, los horarios y si primero se necesita una visita con el Dr. Frankie.',
+          'Sí. El sauna infrarrojo está abierto a todos, sea o no paciente. Llame a la oficina al 813-962-2489 para preguntar por la disponibilidad y reservar un horario.',
       },
       {
         question: '¿Es normal el dolor muscular después del ejercicio?',

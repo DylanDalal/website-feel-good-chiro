@@ -20,6 +20,7 @@ const PLAN = {
   'chiropractic-consultation': [1200, 600],
   'shoulder-mobility': [1200, 600],
   'active-tampa-couple': [1200, 600],
+  'infrared-sauna': [1672, 840],
   'dr-frankie': [470],
 };
 

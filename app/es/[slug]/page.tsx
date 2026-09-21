@@ -95,7 +95,16 @@ export default async function CareDetailEs({
             <p className="page-lede">{page.intro}</p>
             <BookButton>Encontremos su siguiente paso</BookButton>
           </div>
-          <figure className="detail-photo">
+          <figure
+            className="detail-photo"
+            style={
+              page.imagePosition
+                ? ({
+                    '--photo-position': page.imagePosition,
+                  } as React.CSSProperties)
+                : undefined
+            }
+          >
             <Photo
               src={page.image}
               alt={page.imageAlt}

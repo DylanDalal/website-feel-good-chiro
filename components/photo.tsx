@@ -16,6 +16,7 @@ const VARIANTS: Record<string, Variant> = {
     sizes: '(max-width: 850px) 50vw, 300px',
   },
   'active-tampa-couple': { widths: [1200, 600], sizes: '100vw' },
+  'infrared-sauna': { widths: [1672, 840], sizes: '100vw' },
   'dr-frankie': { widths: [470], sizes: '235px' },
 };
 

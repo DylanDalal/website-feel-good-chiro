@@ -8,6 +8,8 @@ export type CarePage = {
   intro: string;
   image: string;
   imageAlt: string;
+  /** CSS object-position for photos whose subject is off-center. */
+  imagePosition?: string;
   sections: { heading: string; paragraphs: string[]; points?: string[] }[];
   faqs: { question: string; answer: string }[];
   related: string[];
@@ -24,6 +26,11 @@ const movement = {
 const active = {
   image: '/images/active-tampa-couple.jpg',
   imageAlt: 'Two adults enjoying a walk outdoors',
+};
+const sauna = {
+  image: '/images/infrared-sauna.jpg',
+  imageAlt: 'The infrared sauna at Feel Good Chiropractic in Tampa',
+  imagePosition: 'right center',
 };
 export const carePages: CarePage[] = [
   {
@@ -269,15 +276,15 @@ export const carePages: CarePage[] = [
   },
   {
     slug: 'exercise-recovery',
-    title: 'Exercise Recovery & Sauna in Tampa',
+    title: 'Exercise Recovery & Infrared Sauna in Tampa',
     label: 'Recovery & sauna',
     kind: 'service',
     headline: 'Recover like an athlete. Even if you’ve never felt like one.',
     description:
-      'Exercise recovery in Tampa with Dr. Frankie Amarillas: functional exercise, hands-on care, and an in-office sauna for active people at every level.',
+      'Exercise recovery in Tampa with Dr. Frankie Amarillas: functional exercise, hands-on care, and an infrared sauna open to everyone.',
     intro:
       'The work you put in matters. So does what happens after it. Whether you’re training for a race, chasing your kids, or getting back to the gym, recovery is part of the plan here.',
-    ...active,
+    ...sauna,
     sections: [
       {
         heading: 'Everyday people. Athlete-level attention.',
@@ -294,16 +301,16 @@ export const carePages: CarePage[] = [
         points: [
           'Functional exercise to build strength, mobility, and control',
           'Hands-on chiropractic and soft tissue care, when suitable',
-          'Time in our in-office sauna',
+          'Time in our in-office infrared sauna',
           'Guidance on training load, rest days, and returning after a layoff',
         ],
       },
       {
-        heading: 'About the sauna.',
+        heading: 'About the infrared sauna.',
         paragraphs: [
-          'Heat is a simple, time-tested way to relax. Many people find a sauna session helps them unwind and eases the stiffness that follows a hard effort. Research on sauna use and exercise recovery is still developing, so we treat it as one comfortable part of a plan rather than a treatment for any condition.',
+          'Our sauna is infrared. Instead of heating the air around you the way a traditional sauna does, infrared heaters warm your body directly, so the cabin stays at a lower, more comfortable temperature. Many people find a sauna session helps them unwind and eases the stiffness that follows a hard effort. Research on sauna use and exercise recovery is still developing, so we treat it as one comfortable part of a plan rather than a treatment for any condition.',
           'A sauna isn’t right for everyone. Check with your doctor first if you are pregnant or have heart disease, uncontrolled high blood pressure, low blood pressure, or another condition affected by heat. Skip it when you are ill or have been drinking alcohol, keep sessions short, drink water afterward, and step out right away if you feel dizzy or unwell.',
-          'Call the office to ask about sauna availability and how it can fit around your visit.',
+          'The sauna is open to everyone. You don’t need to be a chiropractic patient to book a session. Call the office to reserve a time, or ask about adding one around your visit.',
         ],
       },
       {
@@ -323,7 +330,7 @@ export const carePages: CarePage[] = [
       {
         question: 'Can I use the sauna without being a chiropractic patient?',
         answer:
-          'Call the office at 813-962-2489 to ask about current sauna availability, scheduling, and whether a visit with Dr. Frankie is needed first.',
+          'Yes. The infrared sauna is open to everyone, whether or not you are a patient. Call the office at 813-962-2489 to ask about availability and reserve a time.',
       },
       {
         question: 'Is soreness after exercise normal?',
