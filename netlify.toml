@@ -4,6 +4,12 @@
 
 [build.environment]
   NODE_VERSION = "22.13.0"
+  # Pin the canonical origin. Netlify was resolving DEPLOY_PRIME_URL to the
+  # branch host (main--feelgoodchiro.netlify.app) on the production build, so
+  # every canonical, hreflang, og:url, sitemap entry and schema @id pointed at
+  # the netlify.app domain instead of feelgoodchiro.net. SITE_URL wins in
+  # lib/site.ts, which makes the origin deterministic in every deploy context.
+  SITE_URL = "https://feelgoodchiro.net"
 
 # Canonical host: consolidate www onto the bare domain with a permanent redirect
 # so the two never serve the same content. force = true is required, otherwise a
@@ -16,6 +22,22 @@
 
 [[redirects]]
   from = "http://www.feelgoodchiro.net/*"
+  to = "https://feelgoodchiro.net/:splat"
+  status = 301
+  force = true
+
+# The Netlify subdomains served the whole site at 200 alongside the real domain,
+# so Google could crawl three copies of every page. Send them to the canonical
+# host. These match on the exact hostname, so deploy previews
+# (deploy-preview-N--feelgoodchiro.netlify.app) are left alone.
+[[redirects]]
+  from = "https://feelgoodchiro.netlify.app/*"
+  to = "https://feelgoodchiro.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://main--feelgoodchiro.netlify.app/*"
   to = "https://feelgoodchiro.net/:splat"
   status = 301
   force = true

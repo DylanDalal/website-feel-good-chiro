@@ -1,8 +1,10 @@
-// Netlify injects URL (the site's primary domain) and DEPLOY_PRIME_URL (the
-// branch/preview domain) at build time. Resolving the canonical origin from them
-// keeps canonical, hreflang, og:url, sitemap and schema @id self-referencing on
-// whichever host actually serves the build, instead of always claiming
-// feelgoodchiro.net. Guarded so the client bundle never touches process.
+// SITE_URL is pinned to the canonical origin in netlify.toml, so it wins here
+// and canonical, hreflang, og:url, sitemap and schema @id all claim
+// feelgoodchiro.net on every deploy. Do not drop it: Netlify resolved
+// DEPLOY_PRIME_URL to the branch host on the production build, which pointed the
+// whole site's canonicals at main--feelgoodchiro.netlify.app. The remaining
+// fallbacks only matter for builds off Netlify. Guarded so the client bundle
+// never touches process.
 const env: Record<string, string | undefined> =
   typeof process === 'undefined' ? {} : (process.env ?? {});
 const origin = (
