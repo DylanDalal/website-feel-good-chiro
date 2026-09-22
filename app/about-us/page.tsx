@@ -5,7 +5,7 @@ import { site } from '@/lib/site';
 export const metadata = {
   title: 'Meet Dr. Frankie Amarillas | Tampa Chiropractor',
   description:
-    'Get to know Dr. Frankie Amarillas, a Palmer graduate, Certified Acupuncturist, and Certified Chiropractic Sports Practitioner in Tampa. Se habla Español.',
+    'Meet Dr. Frankie Amarillas, a Palmer graduate board-certified in chiropractic orthopedics, the non-surgical side of orthopedic care in Tampa. Se habla Español.',
   alternates: { canonical: '/about-us' },
 };
 const person = {
@@ -22,9 +22,10 @@ const person = {
   knowsLanguage: ['English', 'Spanish'],
   hasCredential: [
     'Doctor of Chiropractic (DC)',
+    'Fellow, International Academy of Neuromusculoskeletal Medicine (FIANM)',
+    'Board Certification in Chiropractic Orthopedics',
     'Certified Chiropractic Sports Practitioner (CCSP)',
     'Certified Acupuncturist (CAc)',
-    'Fellow, International Academy of Neuromusculoskeletal Medicine (FIANM)',
   ].map((name) => ({
     '@type': 'EducationalOccupationalCredential',
     name,
@@ -118,7 +119,9 @@ export default function About() {
               <span>02</span>
               <h3>FIANM</h3>
               <p>
-                Fellow, International Academy of Neuromusculoskeletal Medicine
+                Board certification in chiropractic orthopedics, the
+                non-surgical side of orthopedic care. Fellow, International
+                Academy of Neuromusculoskeletal Medicine.
               </p>
             </div>
             <div>

@@ -81,6 +81,12 @@ export const carePages: CarePage[] = [
     ],
     faqs: [
       {
+        question:
+          'Is a chiropractic orthopedist the same as an orthopedic surgeon?',
+        answer:
+          'No. An orthopedic surgeon is a medical doctor who can operate. Dr. Frankie is a chiropractic physician with board certification in chiropractic orthopedics, which covers non-surgical evaluation and care for the same spine, joint, muscle, and nerve conditions. If your problem calls for a surgeon, he will tell you and help arrange a referral.',
+      },
+      {
         question: 'Do I have to receive an adjustment?',
         answer:
           'You can discuss your comfort level and preferences before any treatment. The examination helps determine suitable options, and you can ask about alternatives to a particular technique.',

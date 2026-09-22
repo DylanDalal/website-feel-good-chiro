@@ -31,7 +31,8 @@ export default function Home() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">
-              Chiropractor in Tampa · Chiropractic, acupuncture & recovery
+              Chiropractor in Tampa · Non-surgical orthopedics, acupuncture &
+              recovery
             </p>
             <h1>
               Get back to
@@ -123,7 +124,7 @@ export default function Home() {
                       'A conversation about how acupuncture might fit your care.',
                       'Cox flexion-distraction for appropriate lower-back concerns.',
                       'Functional training with your favorite activities in mind.',
-                      'Functional exercise, hands-on care, and an infrared sauna open to all.',
+                      'Infrared sauna and recovery tools for after your workout.',
                       'Focused techniques for muscles and surrounding tissues.',
                     ][i]
                   }
@@ -162,9 +163,10 @@ export default function Home() {
               with your goals at the center of the conversation.
             </p>
             <p className="section-copy">
-              A Palmer College graduate, sports chiropractic practitioner, and
-              fan of life outdoors. He’s here to help you make sense of your
-              next step.
+              A Palmer College graduate, board-certified in chiropractic
+              orthopedics, which is the non-surgical side of orthopedic care.
+              Also a fan of life outdoors, and here to help you make sense of
+              your next step.
             </p>
             <a className="text-link" href="/about-us">
               Get to know Dr. Frankie <ArrowUpRight size={18} />

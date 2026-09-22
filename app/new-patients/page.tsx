@@ -15,6 +15,11 @@ export const metadata = {
 };
 export const patientFAQs = [
   {
+    question: 'What is a chiropractic orthopedist?',
+    answer:
+      'Orthopedics is the care of bones, joints, muscles, and nerves. Most people meet an orthopedic surgeon, who can operate when surgery is the answer. Dr. Frankie is board-certified in the non-surgical side: examining, diagnosing, and treating those same conditions with hands-on care, rehabilitation, and movement. If a problem does need a surgeon, he will say so and help you get there.',
+  },
+  {
     question: 'Will I need to commit to a long treatment plan?',
     answer:
       'No. Feel Good Chiropractic does not use long-term contracts. Recommendations depend on your findings and goals, and the plan can be discussed as you progress.',
